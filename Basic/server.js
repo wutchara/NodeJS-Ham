@@ -22,16 +22,29 @@ http.createServer(function (request, response) {
    response.end('Hello World\n');
    */
 
-   //show html
-   /*
-	response.writeHead(200, {'Content-Type': 'text/html'});
-   	var myStream = fs.createReadStream(__dirname + "/index.html", 'utf8');
-   	myStream.pipe(response);
-   	*/
+   if(request.url === '/home' || request.url === '/') {
+   		//show html
+		response.writeHead(200, {'Content-Type': 'text/html'});
+   		var myStream = fs.createReadStream(__dirname + "/index.html", 'utf8');
+   		myStream.pipe(response);
+
+   } else if(request.url === '/2' || request.url === '/page2'){
+   		response.writeHead(200, {'Content-Type': 'text/html'});
+   		var myStream = fs.createReadStream(__dirname + "/page2.html", 'utf8');
+   		myStream.pipe(response);
+
+   } else if(request.url === '/1' || request.url === '/page1') {
+   		response.writeHead(200, {'Content-Type': 'text/html'});
+   		var myStream = fs.createReadStream(__dirname + "/page1.html", 'utf8');
+   		myStream.pipe(response);
+   } else {
+   		response.writeHead(404, {'Content-Type': 'text/html'});
+   		response.end('Page Not Found.\n');
+   }
 
    	//show JSON
-   	response.writeHead(200, {'Content-Type': 'application/json'});
-   	response.end(JSON.stringify(myUser));
+   	//response.writeHead(200, {'Content-Type': 'application/json'});
+   	//response.end(JSON.stringify(myUser));
 
 }).listen(8081);
 
