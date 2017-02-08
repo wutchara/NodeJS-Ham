@@ -18,3 +18,12 @@ readStream.on('error', function(err){
 
 
 //Write Stream
+data = "Wutchara Rachadach";
+var writerStream = fs.createWriteStream("output.txt");
+writerStream.write(data, 'utf8');
+writerStream.on('finish', function(data){
+	console.log("Write file success : " + data);
+});
+writerStream.on("error", function(err){
+	console.log(err.stack);
+});
