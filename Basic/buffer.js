@@ -11,3 +11,11 @@ console.log(buffer2);
 console.log(buffer3);
 console.log(buffer3.toString());
 console.log(buffer4.toString());
+
+//Buffer JSON
+var bufJSON = new Buffer("Wutchara");
+var json = bufJSON.toJSON(bufJSON);
+console.log(json);
+
+var conBuf = Buffer.concat([bufJSON, buffer]);
+console.log(conBuf);
