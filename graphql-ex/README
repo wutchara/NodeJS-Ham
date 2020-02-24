@@ -31,3 +31,10 @@ mutation {
 }
 
 ----
+
+mutation {
+  deleteProduct(name: "test"){
+    name
+    price
+  }
+}
