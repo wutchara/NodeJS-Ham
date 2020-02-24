@@ -1,0 +1,33 @@
+query {
+  getProducts{
+    name
+    price
+  }
+}
+
+---
+
+query {
+  hey
+  getProductByPrice(price: 100000) {
+    name
+    price
+    category
+  }
+}
+
+---
+
+mutation {
+  addProduct(
+    name: "test",
+    price: 1234,
+    category: ["typea","typeb"]
+  ) {
+    name
+    price
+    category
+  }
+}
+
+----
